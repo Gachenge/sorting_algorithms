@@ -17,6 +17,7 @@ void swap(int *a, int *b)
 /**
  * partition - lomuto partition
  * @array: the araay to partition
+ * @size: the size of the partition
  * @left: start index
  * @right: last index
  * Return: The partition
@@ -64,7 +65,7 @@ void sort(int *array, size_t size, int left, int right)
 	if (right - left > 0)
 	{
 		part = partition(array, size, left, right);
-		sort(array, size, left, part -1);
+		sort(array, size, left, part - 1);
 		sort(array, size, part + 1, right);
 	}
 }
@@ -80,5 +81,5 @@ void quick_sort(int *array, size_t size)
 
 	if (!array || size < 2)
 		return;
-	sort(array, size, 0, size -1 );
+	sort(array, size, 0, size - 1);
 }
