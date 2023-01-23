@@ -1,4 +1,5 @@
 #include "sort.h"
+
 /**
  * swap - swap two elements
  * @a: the first
@@ -15,9 +16,9 @@ void swap(int *a, int *b)
 }
 
 /**
- * partition - lomuto partition
- * @array: the araay to partition
- * @size: the size of the partition
+ * partition - lomuto partition where the pivot is the last element
+ * @array: the array to partition
+ * @size: the size of the array
  * @left: start index
  * @right: last index
  * Return: The partition
