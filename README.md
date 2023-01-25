@@ -11,3 +11,6 @@ What is the Big O notation, and how to evaluate the time complexity of an algori
 How to select the best sorting algorithm for a given input.
 
 What is a stable sorting algorithm.
+
+There are so many ways to approach sorting, so many factors to think 
+about when sorting
