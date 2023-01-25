@@ -12,25 +12,47 @@
  */
 listint_t *create_listint(const int *array, size_t size)
 {
-    listint_t *list;
-    listint_t *node;
-    int *tmp;
+	listint_t *list;
+	listint_t *node;
+	int *tmp;
 
-    list = NULL;
-    while (size--)
-    {
-        node = malloc(sizeof(*node));
-        if (!node)
-            return (NULL);
-        tmp = (int *)&node->n;
-        *tmp = array[size];
-        node->next = list;
-        node->prev = NULL;
-        list = node;
-        if (list->next)
-            list->next->prev = list;
-    }
-    return (list);
+	list = NULL;
+	while (size--)
+	{
+		node = malloc(sizeof(*node));
+		if (!node)
+			return (NULL);
+		tmp = (int *)&node->n;
+		*tmp = array[size];
+		node->next = list;
+		node->prev = NULL;
+		list = node;
+		if (list->next)
+			list->next->prev = list;
+	}
+	return (list);
+}
+
+/**
+ * is_doubly_linked - Check if a doubly linked list is corectly linked
+ *
+ * @list: Pointer to the first node of the list to check
+ *
+ * Return: 1 if the list is correctly formated, 0 otherwise
+ */
+int is_doubly_linked(const listint_t *list)
+{
+	const listint_t *prev;
+
+	prev = list ? list->prev : NULL;
+	while (list)
+	{
+		if (list->prev != prev)
+			return (0);
+		prev = list;
+		list = list->next;
+	}
+	return (1);
 }
 
 /**
@@ -40,17 +62,22 @@ listint_t *create_listint(const int *array, size_t size)
  */
 int main(void)
 {
-    listint_t *list;
-    int array[] = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-    size_t n = sizeof(array) / sizeof(array[0]);
+	listint_t *list;
+	int array[] = {1, 2, 20, 21, 22, 31, 32, 34, 39, 41, 47, 62, 68, 79, 84, 87, 91, 92, 95, 98};
+	size_t n = sizeof(array) / sizeof(array[0]);
 
-    list = create_listint(array, n);
-    if (!list)
-        return (1);
-    print_list(list);
-    printf("\n");
-    cocktail_sort_list(&list);
-    printf("\n");
-    print_list(list);
-    return (0);
+	list = create_listint(array, n);
+	if (!list)
+		return (1);
+	print_list(list);
+	printf("\n");
+	cocktail_sort_list(&list);
+	printf("\n");
+	print_list(list);
+	if (!is_doubly_linked(list))
+	{
+		printf("The list is not correctly doubly linked !\n");
+		return (1);
+	}
+	return (0);
 }
