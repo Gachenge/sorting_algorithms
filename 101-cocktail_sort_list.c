@@ -59,16 +59,14 @@ void swap_node_rev(listint_t **list, listint_t **a, listint_t **b)
 
 void cocktail_sort_list(listint_t **list)
 {
-	listint_t *curr = *list, *tail;
+	listint_t *curr, *tail;
 	bool swapped = false;
 
 	if (!list || !*list || (*list)->next == NULL)
 		return;
-	while (curr)
-	{
-		curr = curr->next;
-	}
-	tail = curr;
+	tail = *list;
+	while (tail)
+		tail = tail->next;
 
 	while (!swapped)
 	{
