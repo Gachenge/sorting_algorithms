@@ -28,7 +28,6 @@ void swap_node_for(listint_t **h, listint_t **a, listint_t **b)
 
 /**
  * swap_node_rev - swap two nodes moving backwards
- *
  * @list: the pointer top the head node
  * @a: the pointer to the first node
  * @b: pointer to other node
