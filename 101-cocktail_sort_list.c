@@ -60,7 +60,7 @@ void swap_node_rev(listint_t **list, listint_t **a, listint_t **b)
 void cocktail_sort_list(listint_t **list)
 {
 	listint_t *curr = *list, *tail;
-	int swapped = false;
+	bool swapped = false;
 
 	if (!list || !*list || (*list)->next == NULL)
 		return;
