@@ -5,6 +5,7 @@ void mergesot(int *array, int *barry, int low, int mid, int upp);
 /**
  * recmerge - recursive merge
  * @array: the array to sort
+ * @barry: the sorted sub array
  * @low: the lower bound
  * @upp: the upper bound
  */
@@ -25,6 +26,7 @@ void recmerge(int *array, int *barry, int low, int upp)
 /**
  * mergesot - divide the array into subarrays
  * @array: the array to sort
+ * @barry: the subarray
  * @low: the lower bound
  * @upp: the upper bound
  * @mid: the halfway point
@@ -32,7 +34,7 @@ void recmerge(int *array, int *barry, int low, int upp)
 
 void mergesot(int *array, int *barry, int low, int mid, int upp)
 {
-	int i =low, j = mid + 1, k = low;
+	int i = low, j = mid + 1, k = low;
 
 	while (i <= mid && j <= upp)
 	{
@@ -71,7 +73,7 @@ void mergesot(int *array, int *barry, int low, int mid, int upp)
 	printf("[right]: ");
 	print_array(barry + mid, upp - mid);
 	printf("[Done]: ");
-	print_array(array + low, upp - low);
+	print_array(barry + low, upp - low);
 	for (k = low; k <= upp; k++)
 		array[k] = barry[k];
 }
