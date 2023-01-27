@@ -68,14 +68,15 @@ void mergesot(int *array, int *barry, int low, int mid, int upp)
 			k++;
 		}
 	}
+	for (k = low; k <= upp; k++)
+		array[k] = barry[k];
+
 	printf("Merging...\n[left]: ");
 	print_array(barry + low, mid - low);
 	printf("[right]: ");
 	print_array(barry + mid, upp - mid);
 	printf("[Done]: ");
 	print_array(barry + low, upp - low);
-	for (k = low; k <= upp; k++)
-		array[k] = barry[k];
 }
 
 /**
